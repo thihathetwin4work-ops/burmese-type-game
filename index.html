@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <title>Burmese Type Master</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="stats">Score: <span id="score">0</span> | Lives: <span id="lives">3</span></div>
+    
+    <div id="game-container">
+        <div id="game-over">
+            <h1 style="color: red;">GAME OVER</h1>
+            <p>Your Final Score: <span id="final-score">0</span></p>
+            <button onclick="location.reload()">Try Again</button>
+        </div>
+    </div>
+
+    <div id="input-area">
+        <input type="text" id="word-input" placeholder="Type here..." autocomplete="off" autofocus>
+    </div>
+
+    <script src="{{ url_for('static', filename='game.js') }}"></script>
+</body>
+</html>

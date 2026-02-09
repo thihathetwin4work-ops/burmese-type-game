@@ -1,0 +1,70 @@
+:root {
+    --neon-green: #00ff99;
+    --neon-pink: #ff00ff;
+    --bg-dark: #0a0a0b;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: white;
+    font-family: 'Pyidaungsu', 'Segoe UI', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+#stats {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: var(--neon-green);
+}
+
+#game-container {
+    position: relative;
+    width: 80%;
+    height: 60vh;
+    border: 2px solid #333;
+    background: rgba(255, 255, 255, 0.02);
+    margin-top: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.falling-word {
+    position: absolute;
+    font-size: 1.8rem;
+    color: white;
+    text-shadow: 0 0 8px var(--neon-green);
+    transition: color 0.2s;
+}
+
+#input-area {
+    margin-top: 30px;
+}
+
+#word-input {
+    background: transparent;
+    border: 2px solid var(--neon-pink);
+    border-radius: 5px;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.5rem;
+    width: 300px;
+    text-align: center;
+    outline: none;
+    box-shadow: 0 0 10px var(--neon-pink);
+}
+
+#game-over {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.9);
+    padding: 40px;
+    border: 2px solid red;
+    text-align: center;
+}
