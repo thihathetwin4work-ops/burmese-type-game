@@ -1,26 +1,89 @@
+:root {
+    --neon: #4ba360;
+    --pink: #7c707c;
+}
+
 body {
-    background-color: #0d0d0d;
-    color: #00ff99;
-    font-family: 'Pyidaungsu', sans-serif;
+    background: #050505;
+    color: white;
+    font-family: 'Pyidaungsu', 'Segoe UI', sans-serif;
     margin: 0;
-    overflow: hidden;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 100vh;
 }
-#stats { margin: 20px; font-size: 1.5rem; }
-#game-container {
+
+#main-wrapper { width: 90%; max-width: 800px; text-align: center; }
+
+#menu-screen { padding: 50px; border: 2px solid #222; background: #111; border-radius: 20px; }
+
+.neon-text { color: var(--neon); text-shadow: 0 0 10px var(--neon); }
+
+.lvl-btn {
+    padding: 10px 20px;
+    margin: 10px;
+    background: transparent;
+    border: 1px solid var(--neon);
+    color: var(--neon);
+    cursor: pointer;
+}
+
+.lvl-btn.active { background: var(--neon); color: black; box-shadow: 0 0 15px var(--neon); }
+
+#start-btn {
+    padding: 15px 40px;
+    margin-top: 20px;
+    background: var(--pink);
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    opacity: 0.5;
+}
+
+#top-bar { display: flex; justify-content: space-between; padding: 10px; margin-bottom: 10px; }
+
+#pause-trigger { background: #333; color: var(--neon); border: 1px solid var(--neon); cursor: pointer; }
+
+#play-area {
     position: relative;
-    width: 80vw;
-    height: 60vh;
+    width: 100%;
+    height: 400px;
     border: 2px solid #333;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
     overflow: hidden;
 }
+
 .falling-word {
     position: absolute;
     font-size: 1.8rem;
     color: white;
-    text-shadow: 0 0 10px #00ff99;
+    text-shadow: 0 0 5px var(--neon);
     white-space: nowrap;
 }
+
+#word-input {
+    width: 80%;
+    padding: 15px;
+    font-size: 1.6rem;
+    margin-top: 20px;
+    background: #111;
+    color: white;
+    border: 2px solid var(--pink);
+    text-align: center;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #111;
+    padding: 40px;
+    border: 2px solid var(--neon);
+    z-index: 2000;
+}
+
+.action-btn { background: var(--neon); border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; }
