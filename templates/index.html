@@ -2,23 +2,49 @@
 <html lang="my">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burmese Typing Master</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div id="stats">ရမှတ်: <span id="score">0</span> | အသက်: <span id="lives">3</span></div>
-    
-    <div id="game-container">
-        <div id="game-over" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:rgba(0,0,0,0.9); padding:40px; border:2px solid red; text-align:center; z-index:10;">
-            <h1 style="color: red;">ဂိမ်းအဆုံးသတ်ပါပြီ</h1>
-            <p>ရမှတ်စုစုပေါင်း: <span id="final-score">0</span></p>
-            <button onclick="location.reload()" style="padding:10px 20px; cursor:pointer;">ပြန်ဆော့မယ်</button>
+    <div id="main-wrapper">
+        <div id="menu-screen">
+            <h1 class="neon-text">မြန်မာစာ ရိုက်စွမ်းရည်</h1>
+            <p>အဆင့်ကိုရွေးချယ်ပါ</p>
+            <div class="level-btns">
+                <button class="lvl-btn" onclick="selectLevel('easy')">Easy</button>
+                <button class="lvl-btn" onclick="selectLevel('medium')">Medium</button>
+                <button class="lvl-btn" onclick="selectLevel('hard')">Hard</button>
+            </div>
+            <button id="start-btn" disabled onclick="gameEngine.start()">START GAME</button>
         </div>
-    </div>
 
-    <div id="input-area" style="margin-top:20px; text-align:center;">
-        <input type="text" id="word-input" placeholder="ဒီမှာရိုက်ပါ..." autocomplete="off" autofocus 
-        style="padding:15px; font-size:1.5rem; width:300px; text-align:center; background:#222; color:white; border:2px solid #ff00ff;">
+        <div id="game-interface" style="display:none;">
+            <div id="top-bar">
+                <div id="stats-box">
+                    Score: <span id="score">0</span> | Lives: <span id="lives">3</span>
+                </div>
+                <button id="pause-trigger" onclick="gameEngine.togglePause()">⏸ PAUSE</button>
+            </div>
+            
+            <div id="play-area"></div>
+            
+            <div id="input-container">
+                <input type="text" id="word-input" placeholder="ဒီမှာရိုက်ပါ..." autocomplete="off">
+            </div>
+        </div>
+
+        <div id="pause-modal" class="modal" style="display:none;">
+            <h2>ခေတ္တရပ်နားထားသည်</h2>
+            <button class="action-btn" onclick="gameEngine.togglePause()">RESUME (ဆက်ဆော့မယ်)</button>
+        </div>
+
+        <div id="congrats-modal" class="modal" style="display:none;">
+            <h1 style="color: #00ff99;">Congratulations!</h1>
+            <p>အဆင့်အားလုံးကို အောင်မြင်စွာ ရိုက်နှိပ်နိုင်ခဲ့ပါပြီ။</p>
+            <h2 id="final-score-display">0</h2>
+            <button class="action-btn" onclick="location.reload()">မူလစာမျက်နှာသို့</button>
+        </div>
     </div>
 
     <script src="/static/game.js"></script>
