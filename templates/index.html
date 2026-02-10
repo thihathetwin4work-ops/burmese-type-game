@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <title>Burmese Typing Master</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="stats">ရမှတ်: <span id="score">0</span> | အသက်: <span id="lives">3</span></div>
+    
+    <div id="game-container">
+        <div id="game-over" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:rgba(0,0,0,0.9); padding:40px; border:2px solid red; text-align:center; z-index:10;">
+            <h1 style="color: red;">ဂိမ်းအဆုံးသတ်ပါပြီ</h1>
+            <p>ရမှတ်စုစုပေါင်း: <span id="final-score">0</span></p>
+            <button onclick="location.reload()" style="padding:10px 20px; cursor:pointer;">ပြန်ဆော့မယ်</button>
+        </div>
+    </div>
+
+    <div id="input-area" style="margin-top:20px; text-align:center;">
+        <input type="text" id="word-input" placeholder="ဒီမှာရိုက်ပါ..." autocomplete="off" autofocus 
+        style="padding:15px; font-size:1.5rem; width:300px; text-align:center; background:#222; color:white; border:2px solid #ff00ff;">
+    </div>
+
+    <script src="/static/game.js"></script>
+</body>
+</html>
